@@ -20,6 +20,25 @@
         header h1 {
             margin: 0;
         }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #00796b;
+            padding: 10px;
+        }
+        .navbar button {
+            background-color: #004d40;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .navbar button:hover {
+            background-color: #00695c;
+        }
         .content {
             max-width: 800px;
             margin: 20px auto;
@@ -27,11 +46,6 @@
         }
         .section {
             margin-bottom: 40px;
-        }
-        .section img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 10px;
         }
         .cta {
             background: #00796b;
@@ -54,18 +68,27 @@
         <p>Empowering Intelligent Minds, Inspiring Confident Leaders</p>
     </header>
 
+    <!-- Navigation Buttons -->
+    <div class="navbar">
+        <button onclick="scrollToSection('welcome')">About Us</button>
+        <button onclick="scrollToSection('difference')">Why Roschard</button>
+        <button onclick="scrollToSection('courses')">Our Courses</button>
+        <button onclick="scrollToSection('values')">Our Values</button>
+        <button onclick="scrollToSection('contact')">Contact Us</button>
+    </div>
+
     <div class="content">
-        <div class="section">
+        <div class="section" id="welcome">
             <h2>Welcome to Roschard Learning Institute</h2>
             <p>Located in the heart of Protea Glen, Soweto, Roschard Learning Institute is more than an extra lessons school. We are a safe space for learners from Grade 4 to 12 to grow, gain confidence, and excel academically while developing the leadership qualities that will set them up for lifelong success.</p>
         </div>
 
-        <div class="section">
+        <div class="section" id="difference">
             <h2>The Roschard Difference</h2>
             <p>Many intelligent students struggle with low grades, not because they lack ability, but because they lack confidence or do not find school enjoyable. At Roschard Learning Institute, we address these challenges by teaching core subjects in a way that connects to the vibrant South African spirit. Every lesson is designed to be engaging and fun, helping students see the potential in themselves.</p>
         </div>
 
-        <div class="section">
+        <div class="section" id="courses">
             <h2>Our Courses</h2>
             <p>We specialize in tutoring for the following subjects:</p>
             <ul>
@@ -79,13 +102,12 @@
             <p>Each subject is delivered in a unique South African way that makes learning relatable and inspiring. Our passionate teachers help students see the real-world application of what they learn while building skills that go beyond the classroom.</p>
         </div>
 
-        <div class="section">
+        <div class="section" id="values">
             <h2>More Than Just a School</h2>
             <p>Roschard Learning Institute instills discipline, respect, and a love for learning. We focus on personal development, building responsible, confident children who can face life’s challenges with resilience and pride. Our approach produces well-rounded young leaders, prepared for a bright future.</p>
-            <img src="images/confident-student.jpg" alt="Confident student at Roschard Learning Institute">
         </div>
 
-        <div class="section cta">
+        <div class="section cta" id="contact">
             <p>Ready to see your child excel? Join Roschard Learning Institute today and give them the education they deserve!</p>
             <p><a href="mailto:info@roschardlearning.co.za" style="color: #fff; text-decoration: underline;">Contact Us</a></p>
         </div>
@@ -93,6 +115,16 @@
 
     <footer>
         <p>&copy; 2023 Roschard Learning Institute | Protea Glen, Soweto | Email: info@roschardlearning.co.za</p>
+    </footer>
+
+    <script>
+        // JavaScript to scroll to specific sections
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
     </footer>
 </body>
 </html>

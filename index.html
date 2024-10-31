@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roschard Learning Institute</title>
   <style>
-    /* Basic styles */
+    /* Basic styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -18,28 +18,16 @@
       padding: 20px;
       text-align: center;
     }
-    header h1 {
-      margin: 0;
-    }
-    .navbar {
-      display: flex;
-      justify-content: center;
-      background: #00796b;
-      padding: 10px;
-    }
     .navbar button {
       background-color: #004d40;
       color: white;
       padding: 10px 20px;
       margin: 0 10px;
+      cursor: pointer;
       border: none;
       border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
     }
-    .navbar button:hover {
-      background-color: #00695c;
-    }
+
     .content {
       max-width: 800px;
       margin: 20px auto;
@@ -47,78 +35,26 @@
     }
     .section {
       padding: 50px 20px;
+      opacity: 0;
+      transform: scale(1.1);
       transition: transform 0.8s, opacity 0.8s;
       margin-bottom: 40px;
     }
-    .cta {
-      background: #00796b;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      font-weight: bold;
-    }
-    footer {
-      background: #004d40;
-      color: #fff;
-      text-align: center;
-      padding: 10px;
+    .active {
+      opacity: 1;
+      transform: scale(1);
     }
 
-    /* Animation keyframes and classes */
+    /* Animation keyframes and styles */
     @keyframes bounceIn {
       0% { transform: scale(0.3); opacity: 0; }
       50% { transform: scale(1.1); opacity: 1; }
-      70% { transform: scale(0.9); }
       100% { transform: scale(1); }
     }
-    @keyframes zoomTransition {
-      0% { transform: scale(1.2); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    @keyframes bubbleHover {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .bounce-in {
-      animation: bounceIn 1s ease-out;
-    }
-    .zoom-transition {
-      animation: zoomTransition 0.8s ease-in;
-    }
-    .bubble-hover:hover {
-      animation: bubbleHover 0.3s ease-out;
-      animation-iteration-count: infinite;
-    }
-
-    /* Enhanced styling for sections */
     .section-title {
       font-size: 2rem;
       color: #FF6347;
-      font-weight: bold;
       animation: bounceIn 1s ease-out;
-    }
-    .button {
-      background-color: #ff6347;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: transform 0.3s ease-out;
-    }
-    .button:hover {
-      animation: bubbleHover 0.3s ease-out;
-      background-color: #ffa07a;
-    }
-    .cartoon-icon {
-      width: 50px;
-      height: 50px;
-      transition: transform 0.3s ease-out;
-    }
-    .cartoon-icon:hover {
-      transform: rotate(10deg) scale(1.1);
     }
   </style>
 </head>
@@ -138,40 +74,29 @@
   </div>
 
   <div class="content">
-    <section class="section zoom-transition" id="welcome">
-      <h2 class="section-title bounce-in">Welcome to Roschard Learning Institute</h2>
+    <section class="section" id="welcome">
+      <h2 class="section-title">Welcome to Roschard Learning Institute</h2>
       <p>Your journey to confidence and knowledge begins here!</p>
-      <button class="button bubble-hover">Learn More</button>
     </section>
 
-    <section class="section zoom-transition" id="difference">
-      <h2 class="section-title bounce-in">The Roschard Difference</h2>
-      <p>Many intelligent students struggle with low grades, not because they lack ability, but because they lack confidence or do not find school enjoyable. At Roschard Learning Institute, we address these challenges by teaching core subjects in a way that connects to the vibrant South African spirit. Every lesson is designed to be engaging and fun, helping students see the potential in themselves.</p>
+    <section class="section" id="difference">
+      <h2 class="section-title">The Roschard Difference</h2>
+      <p>At Roschard Learning Institute, we teach core subjects in a way that connects to the vibrant South African spirit, designed to be engaging and fun, helping students see their potential.</p>
     </section>
 
-    <section class="section zoom-transition" id="courses">
-      <h2 class="section-title bounce-in">Our Courses</h2>
-      <p>We specialize in tutoring for the following subjects:</p>
-      <ul>
-        <li>Mathematics</li>
-        <li>Accounting</li>
-        <li>English</li>
-        <li>IsiZulu</li>
-        <li>Geography</li>
-        <li>Physical Sciences</li>
-      </ul>
-      <img src="icon.png" alt="Fun Icon" class="cartoon-icon">
-      <button class="button bubble-hover">View Courses</button>
+    <section class="section" id="courses">
+      <h2 class="section-title">Our Courses</h2>
+      <p>We specialize in tutoring for Mathematics, Accounting, English, IsiZulu, Geography, and Physical Sciences.</p>
     </section>
 
-    <section class="section zoom-transition" id="values">
-      <h2 class="section-title bounce-in">Our Values</h2>
-      <p>Roschard Learning Institute instills discipline, respect, and a love for learning. We focus on personal development, building responsible, confident children who can face life’s challenges with resilience and pride. Our approach produces well-rounded young leaders, prepared for a bright future.</p>
+    <section class="section" id="values">
+      <h2 class="section-title">Our Values</h2>
+      <p>Roschard Learning Institute instills discipline, respect, and a love for learning, producing well-rounded young leaders prepared for a bright future.</p>
     </section>
 
-    <section class="section cta" id="contact">
+    <section class="section" id="contact">
       <p>Ready to see your child excel? Join Roschard Learning Institute today and give them the education they deserve!</p>
-      <p><a href="mailto:info@roschardlearning.co.za" style="color: #fff; text-decoration: underline;">Contact Us</a></p>
+      <p><a href="mailto:info@roschardlearning.co.za">Contact Us</a></p>
     </section>
   </div>
 
@@ -180,41 +105,28 @@
   </footer>
 
   <script>
+    // Smooth scroll to sections
     function scrollToSection(sectionId) {
       document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
     }
+
+    // Intersection observer to add 'active' class when in view
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script>
 </body>
 </html>
 
-                <li>Geography</li>
-                <li>Physical Sciences</li>
-            </ul>
-            <p>Each subject is delivered in a unique South African way that makes learning relatable and inspiring. Our passionate teachers help students see the real-world application of what they learn while building skills that go beyond the classroom.</p>
-        </div>
-
-        <div class="section" id="values">
-            <h2>More Than Just a School</h2>
-            <p>Roschard Learning Institute instills discipline, respect, and a love for learning. We focus on personal development, building responsible, confident children who can face life’s challenges with resilience and pride. Our approach produces well-rounded young leaders, prepared for a bright future.</p>
-        </div>
-
-        <div class="section cta" id="contact">
-            <p>Ready to see your child excel? Join Roschard Learning Institute today and give them the education they deserve!</p>
-            <p><a href="mailto:info@roschardlearning.co.za" style="color: #fff; text-decoration: underline;">Contact Us</a></p>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2023 Roschard Learning Institute | Protea Glen, Soweto | Email: info@roschardlearning.co.za</p>
-    </footer>
-
-    <script>
-        // JavaScript to scroll to specific sections
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-</body>
 </html>
     </footer>
 </body>

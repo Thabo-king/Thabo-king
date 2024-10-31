@@ -1,6 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roschard Learning Institute</title>
+  <style>
+    /* Copy the CSS code here */
+    
+    /* Keyframes for bouncing entrance */
+    @keyframes bounceIn {
+      0% { transform: scale(0.3); opacity: 0; }
+      50% { transform: scale(1.1); opacity: 1; }
+      70% { transform: scale(0.9); }
+      100% { transform: scale(1); }
+    }
+
+    /* Keyframes for zoom transition */
+    @keyframes zoomTransition {
+      0% { transform: scale(1.2); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Keyframes for bubbly hover effect */
+    @keyframes bubbleHover {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    /* Animation classes */
+    .bounce-in {
+      animation: bounceIn 1s ease-out;
+    }
+
+    .zoom-transition {
+      animation: zoomTransition 0.8s ease-in;
+    }
+
+    .bubble-hover:hover {
+      animation: bubbleHover 0.3s ease-out;
+      animation-iteration-count: infinite;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 50px 20px;
+      transition: transform 0.8s, opacity 0.8s;
+    }
+
+    .section.entering {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+
+    .section.active {
+      opacity: 1;
+      transform: scale(1);
+      animation: zoomTransition 0.8s ease-in;
+    }
+
+    /* Apply bouncy animation to titles */
+    .section-title {
+      font-size: 2rem;
+      color: #FF6347;
+      font-weight: bold;
+      animation: bounceIn 1s ease-out;
+    }
+
+    /* Bubble hover effect for buttons */
+    .button {
+      background-color: #ff6347;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.3s ease-out;
+    }
+
+    .button:hover {
+      animation: bubbleHover 0.3s ease-out;
+      background-color: #ffa07a;
+    }
+
+    /* Adding cartoonish effect to icons or images */
+    .cartoon-icon {
+      width: 50px;
+      height: 50px;
+      transition: transform 0.3s ease-out;
+    }
+
+    .cartoon-icon:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <section class="section entering" id="section1">
+    <h2 class="section-title bounce-in">Welcome to Roschard Learning Institute</h2>
+    <p>Your journey to confidence and knowledge begins here!</p>
+    <button class="button bubble-hover">Learn More</button>
+  </section>
+
+  <section class="section entering" id="section2">
+    <h2 class="section-title bounce-in">Our Programs</h2>
+    <p>Exciting lessons in Mathematics, Science, and more!</p>
+    <img src="icon.png" alt="Fun Icon" class="cartoon-icon">
+    <button class="button bubble-hover">View Courses</button>
+  </section>
+</body>
+</html>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roschard Learning Institute - Inspiring Leaders of Tomorrow</title>

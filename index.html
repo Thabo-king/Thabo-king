@@ -1,133 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roschard Learning Institute</title>
-  <style>
-    /* Basic styling */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background: #004d40;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    .navbar button {
-      background-color: #004d40;
-      color: white;
-      padding: 10px 20px;
-      margin: 0 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
+<!-- Load External Script for Roschard -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Versioning and script source for Slater app
+    let version = "1.0";
+    function loadSlaterScript(url) {
+      const script = document.createElement("script");
+      script.src = url;
+      script.type = "text/javascript";
+      document.body.appendChild(script);
+      script.onload = () => console.log("Slater script loaded successfully.");
+      script.onerror = (error) => console.error("Error loading Slater script", error);
     }
 
-    .content {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-    }
-    .section {
-      padding: 50px 20px;
-      opacity: 0;
-      transform: scale(1.1);
-      transition: transform 0.8s, opacity 0.8s;
-      margin-bottom: 40px;
-    }
-    .active {
-      opacity: 1;
-      transform: scale(1);
-    }
+    // Choose source based on environment
+    const isStaging = window.location.host.includes("webflow.io");
+    const scriptSrc = isStaging
+      ? "https://slater.app/5072/10063.js"
+      : `https://assets.slater.app/slater/5072/10063.js?v=${version}`;
+    loadSlaterScript(scriptSrc);
+  });
+</script>
 
-    /* Animation keyframes and styles */
-    @keyframes bounceIn {
-      0% { transform: scale(0.3); opacity: 0; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); }
-    }
-    .section-title {
-      font-size: 2rem;
-      color: #FF6347;
-      animation: bounceIn 1s ease-out;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Roschard Learning Institute</h1>
-    <p>Empowering Intelligent Minds, Inspiring Confident Leaders</p>
-  </header>
-
-  <div class="navbar">
-    <button onclick="scrollToSection('welcome')">About Us</button>
-    <button onclick="scrollToSection('difference')">Why Roschard</button>
-    <button onclick="scrollToSection('courses')">Our Courses</button>
-    <button onclick="scrollToSection('values')">Our Values</button>
-    <button onclick="scrollToSection('contact')">Contact Us</button>
-  </div>
-
-  <div class="content">
-    <section class="section" id="welcome">
-      <h2 class="section-title">Welcome to Roschard Learning Institute</h2>
-      <p>Your journey to confidence and knowledge begins here!</p>
-    </section>
-
-    <section class="section" id="difference">
-      <h2 class="section-title">The Roschard Difference</h2>
-      <p>At Roschard Learning Institute, we teach core subjects in a way that connects to the vibrant South African spirit, designed to be engaging and fun, helping students see their potential.</p>
-    </section>
-
-    <section class="section" id="courses">
-      <h2 class="section-title">Our Courses</h2>
-      <p>We specialize in tutoring for Mathematics, Accounting, English, IsiZulu, Geography, and Physical Sciences.</p>
-    </section>
-
-    <section class="section" id="values">
-      <h2 class="section-title">Our Values</h2>
-      <p>Roschard Learning Institute instills discipline, respect, and a love for learning, producing well-rounded young leaders prepared for a bright future.</p>
-    </section>
-
-    <section class="section" id="contact">
-      <p>Ready to see your child excel? Join Roschard Learning Institute today and give them the education they deserve!</p>
-      <p><a href="mailto:info@roschardlearning.co.za">Contact Us</a></p>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2023 Roschard Learning Institute | Protea Glen, Soweto | Email: info@roschardlearning.co.za</p>
-  </footer>
-
-  <script>
-    // Smooth scroll to sections
-    function scrollToSection(sectionId) {
-      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Intersection observer to add 'active' class when in view
-    const sections = document.querySelectorAll('.section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+<!-- GSAP and ScrollTrigger Animation for Roschard -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Initialize SplitType for detailed text control
+    const typeSplit = new SplitType("[text-split]", { types: "words, chars", tagName: "span" });
+    
+    // Create ScrollTrigger function to manage animation triggers
+    function createScrollTrigger(element, timeline) {
+      ScrollTrigger.create({
+        trigger: element,
+        start: "top bottom",
+        onLeaveBack: () => {
+          timeline.progress(0).pause();
         }
       });
-    }, { threshold: 0.5 });
 
-    sections.forEach(section => {
-      observer.observe(section);
+      ScrollTrigger.create({
+        trigger: ".scroll-trigger-pill",
+        start: "top 55%",
+        end: "bottom 30%",
+        onEnter: () => timeline.play(),
+        onLeaveBack: () => timeline.pause(),
+        markers: false
+      });
+    }
+
+    // Delayed Animation for Each Element with [letters-fade-in] attribute
+    let delayIncrement = 0;
+    $("[letters-fade-in]").each(function (index) {
+      const timeline = gsap.timeline({ paused: true });
+      
+      // Fade-in and scale-up effect with stagger for sophistication
+      timeline.from($(this), { opacity: 0, scale: 0.95, ease: "power2.out", stagger: 0.3 });
+      timeline.from($(this).find(".char"), {
+        opacity: 0,
+        y: 20,
+        duration: 0.3,
+        ease: "power2.out",
+        stagger: { amount: 1 }
+      });
+
+      // Link each timeline to scroll position
+      createScrollTrigger($(this), timeline);
+      
+      // Increment delay for each element to add gradual animation effect
+      delayIncrement += 0.3;
     });
-  </script>
-</body>
-</html>
 
-</html>
-    </footer>
+    // Prevent Flash of Unstyled Content (FOUC) by setting initial opacity
+    gsap.set("[text-split]", { opacity: 1 });
+  });
+</script>
+
 </body>
 </html>

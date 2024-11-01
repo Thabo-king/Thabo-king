@@ -1,1 +1,44 @@
+import { SplitType } from 'https://cdn.splittype.com/1.2.1/splittype.min.js';
+
+export function initializeAnimations() {
+  const typeSplit = new SplitType("[text-split]", { types: "words, chars", tagName: "span" });
+
+  function createScrollTrigger(element, timeline) {
+    ScrollTrigger.create({
+      trigger: element,
+      start: "top bottom",
+      onLeaveBack: () => {
+        timeline.progress(0).pause();
+      }
+    });
+
+    ScrollTrigger.create({
+      trigger: ".scroll-trigger-pill",
+      start: "top 55%",
+      end: "bottom 30%",
+      onEnter: () => timeline.play(),
+      onLeaveBack: () => timeline.pause(),
+      markers: false
+    });
+  }
+
+  let delayIncrement = 0;
+  document.querySelectorAll("[letters-fade-in]").forEach((element, index) => {
+    const timeline = gsap.timeline({ paused: true });
+
+    timeline.from(element, { opacity: 0, scale: 0.95, ease: "power2.out", stagger: 0.3 });
+    timeline.from(element.querySelectorAll(".char"), {
+      opacity: 0,
+      y: 20,
+      duration: 0.3,
+      ease: "power2.out",
+      stagger: { amount: 1 }
+    });
+
+    createScrollTrigger(element, timeline);
+    delayIncrement += 0.3;
+  });
+
+  gsap.set("[text-split]", { opacity: 1 });
+}
 
